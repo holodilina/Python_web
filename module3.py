@@ -10,8 +10,6 @@ with open(".testdata.yaml") as f:
   testdata = yaml.sefe_load(f)
   browser = testdata["browser"]
 
-service = Service(testdata["driver_path"])
-
 class Site:
   def __init__(self, address):
     if browser == "firefox":
