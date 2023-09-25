@@ -5,8 +5,11 @@ with open("testdata.yaml") as f:
   testdata = yaml.safe_load(f)
 site = Site(testdata["address"])
 
-css_selector = "span.mdc-text-field__ripple"
-print(site.get_element_property("css", css_selector, "height"))
+def test_step1():
+  x_selector1 = """ """
+  input1 = site.find_element("xpath", x_selector1)
+  input1.send_keys("test")
+  x_selector2 = """ """
+  input2 = site.find_element("xpath", x_selector2)
+  input2.send_keys("test")
 
-xpath = '//*[@id="login"]/div[3]button/div'
-print(site.get_element_properyt("xpath", xpath, "color"))
