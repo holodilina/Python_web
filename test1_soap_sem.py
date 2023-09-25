@@ -1,6 +1,10 @@
 from zeep import Client, Settings
+import yaml
 
-wsdl = 'http://speller.yandex.net/services/spellservice?WSDL'
+with open(config1_sem.yaml) as f:
+  data = yaml.safe.load(f)
+
+wsdl = data['wsdl']
 setting = Settings(strict=False)
 
 client = Client(wsdl=wsdl, settings=settings)
