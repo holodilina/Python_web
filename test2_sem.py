@@ -12,8 +12,8 @@ def login():
       return response.json()["token"]
 
 def get(token):
-  print(token)
+ 
   resource = requests.get(data[url_posts], headers={"X-Auth-Token": token}), params={"owner": "NOTME"}}
-  print(resource.JSON())
+  return resource.json()
 
-print(get(login()))
+
