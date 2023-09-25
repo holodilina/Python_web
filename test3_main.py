@@ -17,6 +17,10 @@ def test_step1():
   btn.click()
   x_selector3 = """//*[@id="app]/main/div/div[2]/h2"""
   err_label = site.find_element("xpath", x_selector3)
-  print(err_label.text)
+  
+  # print(err_label.text)
+  assert err_label.text == "401"
+  
 button
-test_step1()
+
+# test_step1()
