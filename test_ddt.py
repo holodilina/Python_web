@@ -18,8 +18,6 @@ def get_sites(lat, long, radius, limit=100):
     sites = [i["title"] for i in pages]
     return sites
 
-def test_step1():
-  assert "One Mongomery Tower" in get_sites("37.7891838", "-122.4033522", 100), "NOT FOUND"
-
-test_step1()
+def test_step1(coord1, text1):
+  assert text1 in get_sites(coord1[0], coord1[1], 100), "NOT FOUND"
   
