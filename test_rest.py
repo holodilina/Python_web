@@ -14,9 +14,13 @@ def get_sites(lat, long, radius, limit=100):
          "action": "query"
     }
     r = S.get(url=URL, params=PARAMS)
-    DATA = R.json()
-    PLACES = DATA['query']['geosearch']
-    sites = [i["title"] for i in PLACES]
-    for place in PLACES:
-      print(place['title'])
+    pages = r.json()['query']['geosearch']
+    sites = [i["title"] for i in pages]
+    return sites
+
+def test_step1():
+  assert "One Mongomery Tower" in get_sites("37.7891838", "-122.4033522", 100), "NOT FOUND"
+
+test_step1()
+  
 
