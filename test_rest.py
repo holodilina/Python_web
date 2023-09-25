@@ -8,9 +8,15 @@ def get_sites(lat, long, radius, limit=100):
     params = {
          "format": "json",
          "list": "geosearch",
-         "gscoord": "37.7891838|-122.4033522",
-         "gslimit": "10",
-         "gsradius": "10000",
+         "gscoord": f"{lat}|{long}",
+         "gslimit": f"{limit}",
+         "gsradius": f"{radius}",
          "action": "query"
     }
-r
+    r = S.get(url=URL, params=PARAMS)
+    DATA = R.json()
+    PLACES = DATA['query']['geosearch']
+    sites = [i["title"] for i in PLACES]
+    for place in PLACES:
+      print(place['title'])
+
