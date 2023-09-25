@@ -1,7 +1,12 @@
 import requests
 
+import yaml
+
+with open("config2_sem.yaml") as f:
+  data = yaml.safe_load(f)
+
 def login():
-  response  = requests.post("https://test-stand.gb.ru/gateway/login", data={'username': "User_1_Login"', 'password: "6f831d56c2"})
+  response  = requests.post("https://test-stand.gb.ru/gateway/login", data={'username': data["login"], 'password': data[password]})
   print(response.status_code)
   if response.status_code == 200:
       return response.json()["token"]
