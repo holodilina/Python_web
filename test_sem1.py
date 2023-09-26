@@ -22,13 +22,10 @@ def test_step1():
 def test_step2(selector_login, selector_pass, selector_btn_submit, selector_err_banner):
   input1 = site.find_element("xpath", selector_login)
   input1.send_keys("test")
-
   input2 = site.find_element("xpath", selector_pass)
   input2.send_keys("test")
-  
   btn = site.find_element("css", selector_btn_submit)
   btn.click()
-  x_selector3 = """//*[@id="app]/main/div/div[2]/h2"""
   err_label = site.find_element("xpath", x_selector3)
   assert err_label.text == "401"
 
