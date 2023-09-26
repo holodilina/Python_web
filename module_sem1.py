@@ -22,7 +22,7 @@ class Site:
       options = webdriver.Chrome(service=service, options=options)
       self.driver = webdriver.Chrome(service=service, options=options)
 
-    self.driver.implicitly_wait(3)
+    self.driver.implicitly_wait(testdata_sem1["wait_time"])
     self.driver.maximize_window()
     self.driver.get(address)
     timesleep(testdata["sleep_time"])
