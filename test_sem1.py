@@ -3,7 +3,7 @@ import module import Site
 
 with open("testdata.yaml") as f:
   testdata = yaml.safe_load(f)
-site = Site(testdata["address"])
+# site = Site(testdata["address"])
 
 def test_step1():
   x_selector1 = """//*[@id="login"]/div[1]/label/input"""
@@ -27,7 +27,28 @@ def test_step2(selector_login, selector_pass, selector_btn_submit, selector_err_
   btn = site.find_element("css", selector_btn_submit)
   btn.click()
   err_label = site.find_element("xpath", selector_err_banner)
-  site.close_browser()
+
+  try:
+    url = site.driver.current_url
+    print(url)
+
+  except:
+    pass
+
+  else:
+    site.driver.close()
+  
   assert err_label.text == "401"
 
-
+def test_step3(selector_login, selector_pass, selector_btn_submit, selector_err_banner):
+  input1 = site.find_element("xpath", selector_login)
+  input1.clear()
+  input1.send_keys(testdata["login"])
+  input2 = site.find_element("xpath", selector_pass)
+  input2.send_keys(testdata["password"])
+  input2.clear()
+  btn = site.find_element("css", selector_btn_submit)
+  btn.click()
+  blog = site.find_element("xpath", selector_blog)
+  site.close_browser()
+  assert blog.text == "Blog"
