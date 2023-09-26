@@ -16,3 +16,4 @@ def selector_btn_submit():
 @pytest.fuxture()
 def selector_err_banner():
     return """//*[@id="app]/main/div/div[2]/h2"""
+
