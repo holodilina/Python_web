@@ -26,7 +26,8 @@ def test_step2(selector_login, selector_pass, selector_btn_submit, selector_err_
   input2.send_keys("test")
   btn = site.find_element("css", selector_btn_submit)
   btn.click()
-  err_label = site.find_element("xpath", x_selector3)
+  err_label = site.find_element("xpath", selector_err_banner)
+  site.close()
   assert err_label.text == "401"
 
 
