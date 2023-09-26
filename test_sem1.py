@@ -17,6 +17,7 @@ def test_step1():
   btn.click()
   x_selector3 = """//*[@id="app]/main/div/div[2]/h2"""
   err_label = site.find_element("xpath", x_selector3)
+  site.close_dr()
   assert err_label.text == "401"
   
 def test_step2(selector_login, selector_pass, selector_btn_submit, selector_err_banner):
@@ -40,7 +41,7 @@ def test_step2(selector_login, selector_pass, selector_btn_submit, selector_err_
   
   assert err_label.text == "401"
 
-def test_step3(selector_login, selector_pass, selector_btn_submit, selector_err_banner):
+def test_step3(site, selector_login, selector_pass, selector_btn_submit, selector_err_banner):
   input1 = site.find_element("xpath", selector_login)
   input1.clear()
   input1.send_keys(testdata["login"])
@@ -50,5 +51,5 @@ def test_step3(selector_login, selector_pass, selector_btn_submit, selector_err_
   btn = site.find_element("css", selector_btn_submit)
   btn.click()
   blog = site.find_element("xpath", selector_blog)
-  site.close_browser()
+  # site.close_dr()
   assert blog.text == "Blog"
