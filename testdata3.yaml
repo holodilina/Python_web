@@ -3,3 +3,4 @@ browser: chrome
 sleep_time: 2
 login: User_1_Login
 password: 6f831d56c2
+driver_path: c:\chromedriver.exe
