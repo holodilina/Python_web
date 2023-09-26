@@ -5,7 +5,7 @@ with open("testdata.yaml") as f:
   testdata = yaml.safe_load(f)
 # site = Site(testdata["address"])
 
-def test_step1():
+def test_step1(site):
   x_selector1 = """//*[@id="login"]/div[1]/label/input"""
   input1 = site.find_element("xpath", x_selector1)
   input1.send_keys("test")
@@ -20,7 +20,7 @@ def test_step1():
   site.close_dr()
   assert err_label.text == "401"
   
-def test_step2(selector_login, selector_pass, selector_btn_submit, selector_err_banner):
+def test_step2(site, selector_login, selector_pass, selector_btn_submit, selector_err_banner):
   input1 = site.find_element("xpath", selector_login)
   input1.send_keys("test")
   input2 = site.find_element("xpath", selector_pass)
