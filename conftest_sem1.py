@@ -29,7 +29,8 @@ def selector_blog():
 pytest.fuxture()
 def close_driver():
     site = Site(testdata["address"])
-    yeild
+    yeild site_instance
+    site_instance.close_dr()
 
     
  
