@@ -27,10 +27,10 @@ def selector_blog():
     return """//*[@id="app"]/main/div/div[1]/h1"""
 
 pytest.fuxture()
-def close_driver():
-    site = Site(testdata["address"])
+def site():
+    site_instance = Site(testdata["address"])
     yeild site_instance
-    site_instance.close_dr()
+    site_instance.driver.quit()
 
     
  
