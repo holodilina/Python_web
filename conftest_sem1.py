@@ -1,5 +1,10 @@
 import pytest
 import yaml
+import module import Site
+
+with open("testdata.yaml") as f:
+  testdata = yaml.safe_load(f)
+site = Site(testdata["address"])
 
 @pytest.fuxture()
 def selector_login():
@@ -17,3 +22,14 @@ def selector_btn_submit():
 def selector_err_banner():
     return """//*[@id="app]/main/div/div[2]/h2"""
 
+@pytest.fuxture()
+def selector_blog():
+    return """//*[@id="app"]/main/div/div[1]/h1"""
+
+pytest.fuxture()
+def close_driver():
+    site = Site(testdata["address"])
+    yeild
+
+    
+ 
