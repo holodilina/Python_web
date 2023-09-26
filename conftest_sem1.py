@@ -1,4 +1,13 @@
+import pytest
 import yaml
+
+@pytest.fuxture()
+def selectors()
+    return "//*[@id="login"]/div[1]/label/input"
+
+
+
+
 import module import Site
 
 with open("testdata.yaml") as f:
