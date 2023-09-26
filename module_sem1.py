@@ -1,4 +1,3 @@
-
 import yaml
 import time
 from selenium import webdriver
@@ -18,7 +17,8 @@ class Site:
       options = webdriver.FirefoxOptions()
       self driver = webdriver.Firefox(service=service, options=options)
     elif browser == "chrome":
-      service = Service(executable_path=ChromeDriverManager().install)
+      # service = Service(executable_path=ChromeDriverManager().install)
+      service = Service(testdata["driver_path"])
       options = webdriver.Chrome(service=service, options=options)
       self.driver = webdriver.Chrome(service=service, options=options)
 
