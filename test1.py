@@ -1,8 +1,8 @@
-from testpage_sem1 import OperationsHelper
+from testpage import OperationsHelper
 import logging
 import yaml
 
-with open("testdata3_sem3.yaml") as f:
+with open(./"testdata.yaml") as f:
   testdata = yaml.safe_load(f)
 
 def test_step1(browser):
