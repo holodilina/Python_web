@@ -30,3 +30,11 @@ class OperationsHelper(BasePage):
     text = error_field.text
     loggin.info(f"We find text {text} in error field {TestSearchLocators.LOCATOR_ERROR_FIELD[1]})
     return text
+
+  def get_blog (self):
+    blog = self.find_element(TestSearchLocators.LOCATOR_BLOG)
+    text = blog_text
+    loggin.info(f"We find text {text} in error field {TestSearchLocators.LOCATOR_BLOG[1]})
+    return text
+
+
