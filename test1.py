@@ -9,4 +9,3 @@ def test_step1(browser):
   testpage.enter_pass("test")
   testpage.click_login_button()
   assert testpage.get_error_text() == "401"
-  
